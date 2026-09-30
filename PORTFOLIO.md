@@ -6,7 +6,7 @@
 
 ## 線上展示
 
-[開啟待辦清單 App](https://<你的帳號>.github.io/<你的repo名稱>/)
+[開啟待辦清單 App](https://nailong1216.github.io/My1stCopilotWorkshop/)
 
 ## 功能
 
