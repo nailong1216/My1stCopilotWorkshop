@@ -11,7 +11,12 @@
   <main class="todo-card">
     <header class="todo-header">
       <p class="eyebrow">DAILY FOCUS</p>
-      <h1>待辦清單</h1>
+      <div class="header-title-row">
+        <h1>待辦清單</h1>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">
+          <span aria-hidden="true">🌙</span> 深色模式
+        </button>
+      </div>
       <p class="subtitle">整理今天要完成的每一件事</p>
     </header>
 
@@ -20,6 +25,12 @@
       <input id="todo-input" type="text" placeholder="今天想完成什麼？" autocomplete="off" maxlength="120">
       <button type="submit">新增</button>
     </form>
+
+    <nav class="todo-filters" aria-label="篩選待辦事項">
+      <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">全部</button>
+      <button class="filter-button" type="button" data-filter="active" aria-pressed="false">未完成</button>
+      <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">已完成</button>
+    </nav>
 
     <section class="todo-section" aria-labelledby="list-heading">
       <h2 id="list-heading" class="visually-hidden">待辦事項列表</h2>
