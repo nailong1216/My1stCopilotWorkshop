@@ -265,11 +265,26 @@ button:active {
 }
 
 .todo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
   padding-top: 20px;
   margin-top: 24px;
   color: var(--color-muted);
   font-size: 0.9rem;
   border-top: 1px solid var(--color-border);
+}
+
+.clear-completed-button {
+  min-height: 38px;
+  padding: 0 12px;
+}
+
+.clear-completed-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .visually-hidden {

@@ -5,6 +5,7 @@ const todoInput = document.querySelector("#todo-input");
 const todoList = document.querySelector("#todo-list");
 const emptyState = document.querySelector("#empty-state");
 const remainingCount = document.querySelector("#remaining-count");
+const clearCompletedButton = document.querySelector("#clear-completed-button");
 const themeToggle = document.querySelector("#theme-toggle");
 const filterButtons = document.querySelectorAll(".filter-button");
 
@@ -64,6 +65,14 @@ filterButtons.forEach((button) => {
     });
     renderTodos();
   });
+});
+
+clearCompletedButton.addEventListener("click", () => {
+  if (!window.confirm("確定要清除所有已完成的待辦事項嗎？此操作無法復原。")) return;
+
+  todos = todos.filter((todo) => !todo.completed);
+  saveTodos();
+  renderTodos();
 });
 
 // 從瀏覽器儲存空間讀取待辦資料。
@@ -127,7 +136,9 @@ function renderTodos() {
   });
 
   const incompleteCount = todos.filter((todo) => !todo.completed).length;
+  const completedCount = todos.filter((todo) => todo.completed).length;
   remainingCount.textContent = `未完成：${incompleteCount} 項`;
+  clearCompletedButton.disabled = completedCount === 0;
   emptyState.hidden = visibleTodos.length > 0;
   if (activeFilter === "active") {
     emptyState.textContent = "沒有未完成的待辦事項。";
